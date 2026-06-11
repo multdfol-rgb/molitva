@@ -240,7 +240,7 @@ if (tgApp) {
   tgUser = (tgApp.initDataUnsafe && tgApp.initDataUnsafe.user) || null;
 }
 var P        = new URLSearchParams(window.location.search);
-var BOT_NAME = "bot"      || '';
+var BOT_NAME = "sklyfhaugiia_bot";      || '';
 var MGR_NAME = "@Newsupporttemich"      || '';
 var RATE_URL = P.get('rate_url') || '';
 
@@ -493,52 +493,22 @@ function withdrawBonus() {
 
 // ── COPY REF ──────────────────────────────────────────────────────────────────
 function copyRef() {
-  if (!tgUser) { 
-    toast('err', 'Откройте через Telegram'); 
-    return; 
-  }
-  
-  var link = 'https://t.me/' + BOT_NAME + '?start=' + tgUser.id;
-  
-  // 1. Проверяем наличие официального метода копирования Telegram SDK
-  if (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.Clipboard) {
-    window.Telegram.WebApp.Clipboard.writeText(link, function(success) {
-      if (success) {
-        toast('ok', 'Ссылка скопирована');
-      } else {
-        // Если метод Telegram не сработал, запускаем запасной вариант
-        fallbackCopy(link);
-      }
-    });
-  } else {
-    // 2. Если открыто не в Telegram, используем ваш старый метод
-    fallbackCopy(link);
-  }
-}
+    if (!tgUser) {
+        toast('err', 'Откройте через Telegram');
+        return;
+    }
 
-// Вынесли ваш старый рабочий код копирования в отдельную резервную функцию
-function fallbackCopy(link) {
-  if (navigator.clipboard) {
-    navigator.clipboard.writeText(link).then(function() { 
-      toast('ok', 'Ссылка скопирована'); 
-    }).catch(function() {
-      oldSchoolCopy(link);
-    });
-  } else {
-    oldSchoolCopy(link);
-  }
-}
+    const link = `https://t.me/${BOT_NAME}?start=${tgUser.id}`;
 
-function oldSchoolCopy(link) {
-  var e = document.createElement('textarea');
-  e.value = link;
-  document.body.appendChild(e);
-  e.select();
-  document.execCommand('copy');
-  document.body.removeChild(e);
-  toast('ok', 'Ссылка скопирована');
-}
+    const input = document.createElement("input");
+    input.value = link;
+    document.body.appendChild(input);
+    input.select();
+    document.execCommand("copy");
+    document.body.removeChild(input);
 
+    toast("ok", "Ссылка скопирована");
+}
 
 // ── OPEN MANAGER ──────────────────────────────────────────────────────────────
 function openMgr() {
