@@ -136,7 +136,7 @@ body::after{content:'';position:fixed;inset:0;background:rgba(8,8,10,.55);pointe
     <div class="wrow">
       <div class="wlbl">Валюта отправки</div>
       <div class="pills" id="FP">
-        <button class="pill avail" data-v="rub" onclick="pickFrom('rub')">&rub; Рубли</button>
+        <button class="pill avail" data-v="rub" onclick="pickFrom('rub')">₽; Рубли</button>
         <button class="pill avail" data-v="cny" onclick="pickFrom('cny')">&yen; Юани</button>
         <button class="pill avail" data-v="usdt" onclick="pickFrom('usdt')">&#8366; USDT</button>
       </div>
@@ -146,7 +146,7 @@ body::after{content:'';position:fixed;inset:0;background:rgba(8,8,10,.55);pointe
     <div class="wrow">
       <div class="wlbl">Валюта получения</div>
       <div class="pills" id="TP">
-        <button class="pill avail" data-v="rub" onclick="pickTo('rub')">&rub; Рубли</button>
+        <button class="pill avail" data-v="rub" onclick="pickTo('rub')">₽; Рубли</button>
         <button class="pill avail" data-v="cny" onclick="pickTo('cny')">&yen; Юани</button>
         <button class="pill avail" data-v="usdt" onclick="pickTo('usdt')">&#8366; USDT</button>
       </div>
@@ -158,9 +158,9 @@ body::after{content:'';position:fixed;inset:0;background:rgba(8,8,10,.55);pointe
     <div class="rateval" id="RV">1&yen; = 13.50 &rub;</div>
   </div>
   <div class="tiers" id="TIERS" style="display:none">
-    <div class="trow" id="TR0"><span>от 200 &yen;+</span><span id="TV0">13.50 &rub;/&yen;</span></div>
-    <div class="trow" id="TR1"><span>от 1 000 &yen;+</span><span id="TV1">13.35 &rub;/&yen;</span></div>
-    <div class="trow" id="TR2"><span>от 3 000 &yen;+</span><span id="TV2">13.30 &rub;/&yen;</span></div>
+    <div class="trow" id="TR0"><span>от 200 &yen;+</span><span id="TV0">13.50 ₽;/&yen;</span></div>
+    <div class="trow" id="TR1"><span>от 1 000 &yen;+</span><span id="TV1">13.35 ₽;/&yen;</span></div>
+    <div class="trow" id="TR2"><span>от 3 000 &yen;+</span><span id="TV2">13.30 ₽;/&yen;</span></div>
   </div>
   <button class="btnpink" id="SUBMIT_BTN" onclick="submitOrder()"><i class="ti ti-send"></i>Создать заявку</button>
   <div style="margin-top:16px">
@@ -184,7 +184,7 @@ body::after{content:'';position:fixed;inset:0;background:rgba(8,8,10,.55);pointe
   <div class="hero"><h1>FAQ</h1><p>Часто задаваемые вопросы</p></div>
   <div class="faqitem" onclick="faqToggle(this)">
     <div class="faqq"><div class="faqqi"><i class="ti ti-question-mark"></i></div><div class="faqqt">Почему выбирают нас?</div><i class="ti ti-chevron-down faqch"></i></div>
-    <div class="faqa"><div class="faqai">Быстро, прозрачно, без скрытых комиссий. Курс фиксируется в момент заявки.</div></div>
+    <div class="faqa"><div class="faqai">Быстро, прозрачно, без скрытых комиссий.</div></div>
   </div>
   <div class="faqitem" onclick="faqToggle(this)">
     <div class="faqq"><div class="faqqi"><i class="ti ti-question-mark"></i></div><div class="faqqt">Как происходит обмен?</div><i class="ti ti-chevron-down faqch"></i></div>
@@ -196,7 +196,7 @@ body::after{content:'';position:fixed;inset:0;background:rgba(8,8,10,.55);pointe
   </div>
   <div class="faqitem" onclick="faqToggle(this)">
     <div class="faqq"><div class="faqqi"><i class="ti ti-question-mark"></i></div><div class="faqqt">Реферальная программа</div><i class="ti ti-chevron-down faqch"></i></div>
-    <div class="faqa"><div class="faqai">Приглашайте друзей по вашей ссылке. Вы получаете <b>2%</b> от суммы каждого их обмена. Минимум для вывода &mdash; 20 000 &rub;. Статистику смотрите в разделе &laquo;Моя статистика&raquo;.</div></div>
+    <div class="faqa"><div class="faqai">Приглашайте друзей по вашей ссылке. Вы получаете <b>2%</b> от суммы каждого их обмена. Минимум для вывода &mdash; 20 000 ₽;. Статистику смотрите в разделе &laquo;Моя статистика&raquo;.</div></div>
   </div>
   <div class="helpcard">
     <p>Не нашли ответ? Напишите нам!</p>
