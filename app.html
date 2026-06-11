@@ -493,20 +493,52 @@ function withdrawBonus() {
 
 // ── COPY REF ──────────────────────────────────────────────────────────────────
 function copyRef() {
-  if (!tgUser) { toast('err', 'Откройте через Telegram'); return; }
+  if (!tgUser) { 
+    toast('err', 'Откройте через Telegram'); 
+    return; 
+  }
+  
   var link = 'https://t.me/' + BOT_NAME + '?start=' + tgUser.id;
-  if (navigator.clipboard) {
-    navigator.clipboard.writeText(link).then(function() { toast('ok', 'Ссылка скопирована'); });
+  
+  // 1. Проверяем наличие официального метода копирования Telegram SDK
+  if (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.Clipboard) {
+    window.Telegram.WebApp.Clipboard.writeText(link, function(success) {
+      if (success) {
+        toast('ok', 'Ссылка скопирована');
+      } else {
+        // Если метод Telegram не сработал, запускаем запасной вариант
+        fallbackCopy(link);
+      }
+    });
   } else {
-    var e = document.createElement('textarea');
-    e.value = link;
-    document.body.appendChild(e);
-    e.select();
-    document.execCommand('copy');
-    document.body.removeChild(e);
-    toast('ok', 'Ссылка скопирована');
+    // 2. Если открыто не в Telegram, используем ваш старый метод
+    fallbackCopy(link);
   }
 }
+
+// Вынесли ваш старый рабочий код копирования в отдельную резервную функцию
+function fallbackCopy(link) {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(link).then(function() { 
+      toast('ok', 'Ссылка скопирована'); 
+    }).catch(function() {
+      oldSchoolCopy(link);
+    });
+  } else {
+    oldSchoolCopy(link);
+  }
+}
+
+function oldSchoolCopy(link) {
+  var e = document.createElement('textarea');
+  e.value = link;
+  document.body.appendChild(e);
+  e.select();
+  document.execCommand('copy');
+  document.body.removeChild(e);
+  toast('ok', 'Ссылка скопирована');
+}
+
 
 // ── OPEN MANAGER ──────────────────────────────────────────────────────────────
 function openMgr() {
